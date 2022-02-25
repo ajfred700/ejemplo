@@ -1,0 +1,7 @@
+CrudDao\EmpleadoDao.class
+models\Departamentos.class
+CrudDao\Principal.class
+org\sample\maven2\uv\Hibernate.class
+CrudDao\IDao.class
+models\Empleados.class
+CrudDao\DepartamentoDao.class
