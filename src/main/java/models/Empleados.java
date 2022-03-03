@@ -25,24 +25,43 @@ import javax.persistence.Table;
 @Table(name = "empleados")
 public class Empleados {
      private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long clave;
-
-    @Column(name = "nombre", length = 50)
-    private String nombre;
-
-    @Column(name = "direccion", length = 100)
-    private String direccion;
-
-    @Column(name = "telefono", length = 15)
-    private String telefono;
-
-    @ManyToOne(optional = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "eclave")
-    @JsonBackReference(value = "empleado")
-    private Departamentos departamento;
+     
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @Column (name ="eclave")
+     private long clave;
+     
+     @Column(name = "nombre")
+     private String nombre;
+     
+     @Column (name = "direccion")
+     private String direccion;
+     
+     @Column (name = "telefono")
+     private String telefono;
+     
+     @ManyToOne
+     @JoinColumn(name = "depaclave")
+     private Departamentos departamentos;
+//////////////////////////////////////////////////////
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long clave;
+//
+//    @Column(name = "nombre", length = 50)
+//    private String nombre;
+//
+//    @Column(name = "direccion", length = 100)
+//    private String direccion;
+//
+//    @Column(name = "telefono", length = 15)
+//    private String telefono;
+//
+//    @ManyToOne(optional = true, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "eclave")
+//    @JsonBackReference(value = "empleado")
+//    private Departamentos departamento;
+    //////////////////////////////////////////////////
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @Column(name = "clave")
@@ -64,15 +83,24 @@ public class Empleados {
 //    @JoinColumn(name ="eclave")
 //    private Departamentos departamentos;
 
+    public Departamentos getDepartamentos() {
+        return departamentos;
+    }
+
+    public void setDepartamentos(Departamentos departamentos) {
+        this.departamentos = departamentos;
+    }
+
     public Empleados() {
     }
 
-    public Empleados(long clave, String direccion, String telefono) {
-        this.clave = clave;
+    public Empleados(String nombre, String direccion, String telefono) {
+        this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
     }
-    
+
+   
 
     public long getClave() {
         return clave;
@@ -105,6 +133,7 @@ public class Empleados {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
     @Override
 	public String toString() {
 		return "Nuevo empleado =" + clave + ", Nombre: " + nombre + ", Dirección: =" + direccion

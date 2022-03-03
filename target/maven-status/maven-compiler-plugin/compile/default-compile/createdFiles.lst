@@ -1,7 +1,10 @@
 CrudDao\EmpleadoDao.class
 models\Departamentos.class
 CrudDao\Principal.class
+CrudDao\FactoryDao$Type.class
+CrudDao\FactoryDao.class
 org\sample\maven2\uv\Hibernate.class
 CrudDao\IDao.class
+CrudDao\FactoryDao$1.class
 models\Empleados.class
 CrudDao\DepartamentoDao.class

@@ -30,13 +30,16 @@ public class Departamentos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long clave;
+    @Column(name ="dclave")
+    private long clave;
 
-    @Column(name = "nombre", length = 50)
+    @Column(name = "nombre")
     private String nombre;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy= "empleados", cascade = CascadeType.ALL)
+//    //private Empleados empleados;
+//    Set empleados = new HashSet();
 
-    @OneToMany(mappedBy = "departamento")
-    @JsonManagedReference(value = "empleado")
+    @OneToMany(mappedBy = "departamentos")
     private Set<Empleados> empleados = new HashSet<>();
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,10 +55,16 @@ public class Departamentos {
 //    @OneToMany(mappedBy="departamentos")
 //    Set<Empleados> empleados;
     
-    //@OneToMany(fetch = FetchType.LAZY, mappedBy= "departamentos", cascade = CascadeType.ALL)
-    //private Empleados empleados;
-//Set empleados = new HashSet();
+   
  //private Set<Empleados> empleados = new HashSet<>(); 
+
+    public Set getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(Set empleados) {
+        this.empleados = empleados;
+    }
 
 
 
